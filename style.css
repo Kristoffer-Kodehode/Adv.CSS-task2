@@ -1,0 +1,141 @@
+* {
+  /*removing default margins and padding*/
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  /*setting some base properties*/
+  background-color: hsl(0, 0%, 95%);
+  font-size: 15px;
+}
+
+.container {
+  /*making the cards flex and setting som boundaries*/
+  margin: 150px 250px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.card {
+  /*setting shared properties for all 3 cards*/
+  justify-content: space-between;
+  padding: 35px;
+  display: flex;
+  flex-direction: column; /*setting flex mostly for getting the buttons to the bottom*/
+}
+
+.card h2 {
+  /*setting properties for the h2, 
+    while accommodating for the possibility of other h2 elsewhere on the site*/
+  color: hsl(0, 0%, 95%);
+  font-family: "Big Shoulders Display", cursive;
+  padding-bottom: 15px;
+  font-size: 36px;
+}
+
+.card p {
+  /*setting properties for the p, 
+  while accommodating for the possibility of other ps elsewhere on the site*/
+  color: hsla(0, 0%, 100%, 0.75);
+  font-family: "Lexend Deca", sans-serif;
+}
+
+.card .icon {
+  /*setting size and making space for the icons for each card*/
+  padding-bottom: 15px;
+  max-width: 64px;
+}
+
+.cta-btn {
+  /*setting shared standard properties for the buttons*/
+  background-color: hsl(0, 0%, 95%);
+  border: 2px solid hsl(0, 0%, 95%); /*setting a border you won't see 
+  until you hover over the button*/
+  border-radius: 50px;
+  padding: 7px 20px;
+  margin-top: 30px;
+  font-family: "Lexend Deca", sans-serif;
+  width: fit-content; /*the buttons wanted to fill their 
+  width out as flex items, so i cut them down to size*/
+}
+
+.sedan {
+  /*setting properties exclusive to the sedan card*/
+  background-color: hsl(31, 77%, 52%);
+  border-radius: 13px 0 0 13px;
+}
+
+.sedan .cta-btn {
+  /*setting properties exclusive to the sedan card's button*/
+  color: hsl(31, 77%, 52%);
+}
+
+.suv {
+  /*setting properties exclusive to the suv card*/
+  background-color: hsl(184, 100%, 22%);
+}
+
+.suv .cta-btn {
+  /*setting properties exclusive to the suv card's button*/
+  color: hsl(184, 100%, 22%);
+}
+
+.lux {
+  /*setting properties exclusive to the luxury card*/
+  background-color: hsl(179, 100%, 13%);
+  border-radius: 0 13px 13px 0;
+}
+
+.lux .cta-btn {
+  /*setting properties exclusive to the luxury card's button*/
+  color: hsl(179, 100%, 13%);
+}
+
+.cta-btn:hover {
+  /*setting properties for the buttons when you hover over them*/
+  background: none;
+  color: hsl(0, 0%, 95%);
+}
+
+@media (max-width: 510px) {
+  /*trying to smooth the margins for media between the actual size of the cards 
+  and the size of media the challenge wanted me to make them responsive at*/
+  .container {
+    margin: 150px 50px;
+  }
+}
+
+@media (max-width: 375px) {
+  /*making the cards stack in a column on media at 375 px or less, and setting more */
+  .container {
+    flex-direction: column;
+    /* margin: 50px; */
+  }
+  .sedan {
+    /*changing the corner rounding to reflect the new ends of the cards in column mode*/
+    border-radius: 13px 13px 0 0;
+  }
+  .lux {
+    border-radius: 0 0 13px 13px;
+  }
+}
+
+/*with the medium at between 376px and 3433px wide the cards stay right next to each other, 
+but starting from 3434px wide they begin to drift apart. I'm not entirely sure why, 
+but as setting a max with for the cards make them drift apart sooner, and the paragraphs 
+are at their max length at 3432px wide, I can only surmise that it has to do with the 
+max possible width of the cards, probably set by the paragraphs (being the longest 
+elements on the cards), the box model or something else default with flex. the most 
+confusing part for me is how this doesn't match my understanding of "space around", 
+but I may just have missed something in my implementation.*/
+
+.BS {
+  /*just expressing my dismay at putting an ad in what is going to be someone elses project*/
+  font-size: 11px;
+  text-align: center;
+  padding-bottom: 5px;
+}
+.BS a {
+  color: hsl(228, 45%, 44%);
+}
